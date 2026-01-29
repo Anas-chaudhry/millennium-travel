@@ -5,7 +5,7 @@
  */
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetDescription, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Plane } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
@@ -38,7 +38,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/">
-            <a className="flex items-center gap-2 group">
+            <div className="flex items-center gap-2 group cursor-pointer">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gradient-to-br from-[#FF6B35] to-[#006D77] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <Plane className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
@@ -48,7 +48,7 @@ export default function Navigation() {
                 </span>
                 <span className="text-xs text-muted-foreground -mt-1">Travel Agency</span>
               </div>
-            </a>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -87,6 +87,12 @@ export default function Navigation() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] sm:w-[350px] rounded-l-3xl">
+              <SheetTitle className="text-2xl font-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Menu
+              </SheetTitle>
+              <SheetDescription className="sr-only">
+                Navigation menu for Millennium Travel Agency
+              </SheetDescription>
               <div className="flex flex-col gap-6 mt-8">
                 {navLinks.map((link) => (
                   <a
